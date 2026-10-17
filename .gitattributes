@@ -1,0 +1,2 @@
+# Preserve exact snapshot bytes so SOURCE_MANIFEST.json verifies on every OS.
+modules/ml_mineral/** -text
