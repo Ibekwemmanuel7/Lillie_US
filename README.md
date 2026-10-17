@@ -1,6 +1,6 @@
 # Lillie US
 
-Integration project for Southern US satellite intelligence. The scientific code stays in its upstream repositories and is installed through exact Git commit references.
+Integration project for Southern US satellite intelligence. VHAGAR and Vaughan are installed through exact upstream Git commit references. The mineral research component is included as a reviewed source snapshot under `modules/ml_mineral`.
 
 ## Pinned dependencies
 
@@ -23,7 +23,13 @@ python -m pip install .
 
 Vaughan requires PyTorch and other scientific dependencies, so installation can be substantial. The VHAGAR reference installs its core dependencies; optional geospatial, archive and serving extras should be selected when the corresponding workflow is implemented.
 
-No Lillie US application package is shipped yet. The project currently provides integration metadata; source code is not copied or vendored.
+No unified Lillie US application package is shipped yet. VHAGAR and Vaughan remain external dependencies. The mineral component runs from its own directory so its existing `src` and `scripts` imports do not collide with other components.
+
+## Mineral research component
+
+`modules/ml_mineral` includes the GeoSentry experimental mineral-prospectivity framework from the local `ML_mineral` project: source, scripts, tests, configurations and entry points. The source folder had no commits or remote, so this component is identified by a SHA-256 snapshot manifest rather than a fabricated Git revision.
+
+See [mineral integration notes](modules/ml_mineral/INTEGRATION.md) for setup, provenance and exclusions. It is not installed by `pip install .`. Its supplied pilot configurations target Nigerian geology and need separate Southern US data, configuration and validation before US use. No validated mineral-discovery claim is made.
 
 ## Update a pin
 

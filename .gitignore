@@ -26,3 +26,12 @@ outputs/
 *.pth
 *.ckpt
 ~$*
+
+# Mineral component local environments, source documents and input data
+modules/ml_mineral/.venv*/
+modules/ml_mineral/data/
+modules/ml_mineral/outputs/
+modules/ml_mineral/Sheet_*/
+modules/ml_mineral/_to_delete/
+modules/ml_mineral/*.exe
+modules/ml_mineral/.streamlit/secrets.toml

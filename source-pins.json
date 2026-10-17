@@ -10,5 +10,14 @@
       "repository": "https://github.com/Ibekwemmanuel7/vaughan.git",
       "commit": "095374d4e74fa7c6125165460599b9270f21ece7"
     }
+  },
+  "components": {
+    "ml_mineral": {
+      "integration": "vendored-source-snapshot",
+      "path": "modules/ml_mineral",
+      "manifest": "modules/ml_mineral/SOURCE_MANIFEST.json",
+      "tree_sha256": "3b198093dff46c13420c99dd49891c4a76fbb7bbe822dea6a889c47ec433f8f3",
+      "source_commit": null
+    }
   }
 }
