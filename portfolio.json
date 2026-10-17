@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-17",
+  "hub": "https://github.com/Ibekwemmanuel7/Lillie_US",
+  "repository_model": "independent product repositories with an integration hub",
+  "products": [
+    {
+      "id": "vhagar",
+      "name": "VHAGAR",
+      "repository": "https://github.com/Ibekwemmanuel7/VHAGAR.git",
+      "domain": "Wildfire intelligence",
+      "current_status": "Existing research code; Southern validation remains a separate task.",
+      "planned_scope": "Southern validation, reliable event delivery, prescribed-burn context and reviewed evidence workflows as defined by the relevant pilot. Portfolio organisation does not establish operational readiness.",
+      "integration": "python-dependency",
+      "source_commit": "42ffa5afeb6d358108a3c4d1f962d9b8747ae3af",
+      "reference_commit": "e1668e3cf02ae199ca09223a6955f0a573406381",
+      "scope_document": "docs/portfolio/SCOPE.md"
+    },
+    {
+      "id": "vaughan",
+      "name": "Vaughan",
+      "repository": "https://github.com/Ibekwemmanuel7/vaughan.git",
+      "domain": "Hurricanes, flood and coastal impacts",
+      "current_status": "Existing hurricane research code; flood and coastal-impact extensions are planned.",
+      "planned_scope": "Observed flood extent, event-related coastal inundation and shoreline disturbance, exposed-asset screening, access and inspection priorities, and recovery evidence. None of these additions is claimed to be implemented by this scope change.",
+      "integration": "python-dependency",
+      "source_commit": "095374d4e74fa7c6125165460599b9270f21ece7",
+      "reference_commit": "865590d26bce8ec99353f9a4c5f2b2791d5de664",
+      "scope_document": "docs/portfolio/SCOPE.md"
+    },
+    {
+      "id": "vulcan",
+      "name": "Vulcan",
+      "repository": "https://github.com/Ibekwemmanuel7/Vulcan.git",
+      "domain": "Mineral prospectivity, mineral rights and permits",
+      "current_status": "Existing experimental prospectivity framework; rights and permit workflows are planned.",
+      "planned_scope": "A jurisdiction-aware register of mineral rights, leases, claims and operating/environmental permits; document provenance, legal-description and geometry links, recorded status, review dates, and observed-activity comparisons. This requires records integration and specialist review, not satellite imagery alone.",
+      "integration": "git-submodule",
+      "source_commit": "d37644f0ce53a46f7d8074b775b7a436e229e413",
+      "reference_commit": "d37644f0ce53a46f7d8074b775b7a436e229e413",
+      "scope_document": "docs/portfolio/SCOPE.md"
+    },
+    {
+      "id": "vantage",
+      "name": "Vantage",
+      "repository": "https://github.com/Ibekwemmanuel7/Vantage.git",
+      "domain": "Southern US agriculture",
+      "current_status": "Design stage; no implementation or validated agriculture service.",
+      "planned_scope": "First test: support an independent crop consultant prioritising field and zone inspections in irrigated upland cotton in Hale and Floyd counties, Texas. Proposed pilot: 3-5 growers and 20-40 fields, with farmer records and independent scouting. Broader crop, pasture and farm-water services require separate design and validation.",
+      "integration": "documentation-reference",
+      "source_commit": null,
+      "reference_commit": "3492da3b5f51d37225b8173c8a4a9537254d8bab",
+      "scope_document": "docs/portfolio/SCOPE.md"
+    },
+    {
+      "id": "vepris",
+      "name": "Vepris",
+      "repository": "https://github.com/Ibekwemmanuel7/Vepris.git",
+      "domain": "Southern US forestry",
+      "current_status": "Design stage; scope documented, implementation pending.",
+      "planned_scope": "Forest-condition and canopy-change screening, drought/stress investigation support, harvest and clearing histories, replanting, vegetation recovery, storm-disturbance documentation and timberland portfolio reporting.",
+      "integration": "documentation-reference",
+      "source_commit": null,
+      "reference_commit": "5fee8ab77b94941cc9a0668eed6e37f5c5007276",
+      "scope_document": "docs/portfolio/SCOPE.md"
+    },
+    {
+      "id": "viga",
+      "name": "Viga",
+      "repository": "https://github.com/Ibekwemmanuel7/Viga.git",
+      "domain": "Oil-spill detection",
+      "current_status": "Awaiting owner-led separation from LillieWatch; documentation only.",
+      "planned_scope": "Reusable oil-spill candidate detection, review and evidence workflows. After the owner publishes the separated code, review packaging, provenance, data rights, test evidence and regional suitability before selecting a source pin and integration method.",
+      "integration": "documentation-reference",
+      "source_commit": null,
+      "reference_commit": "abf519cb91348bc3779d6367885da448bd4f3209",
+      "scope_document": "docs/portfolio/SCOPE.md"
+    },
+    {
+      "id": "velo",
+      "name": "Velo",
+      "repository": "https://github.com/Ibekwemmanuel7/Velo.git",
+      "domain": "Water intelligence",
+      "current_status": "Design stage; no implementation or validated water-intelligence service.",
+      "planned_scope": "Routine water availability and reservoir/surface-water histories, watershed context, regional groundwater indicators where suitable, locally validated water-quality and bloom screening, and sampling/inspection prioritisation. Select one customer, region and decision before implementing a broad platform.",
+      "integration": "documentation-reference",
+      "source_commit": null,
+      "reference_commit": "7c60f34a792b7560b2172aca8181deae02f75360",
+      "scope_document": "docs/portfolio/SCOPE.md"
+    }
+  ]
+}

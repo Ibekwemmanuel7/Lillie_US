@@ -4,11 +4,13 @@
   "dependencies": {
     "vhagar": {
       "repository": "https://github.com/Ibekwemmanuel7/VHAGAR.git",
-      "commit": "42ffa5afeb6d358108a3c4d1f962d9b8747ae3af"
+      "commit": "42ffa5afeb6d358108a3c4d1f962d9b8747ae3af",
+      "documentation_commit": "e1668e3cf02ae199ca09223a6955f0a573406381"
     },
     "vaughan": {
       "repository": "https://github.com/Ibekwemmanuel7/vaughan.git",
-      "commit": "095374d4e74fa7c6125165460599b9270f21ece7"
+      "commit": "095374d4e74fa7c6125165460599b9270f21ece7",
+      "documentation_commit": "865590d26bce8ec99353f9a4c5f2b2791d5de664"
     }
   },
   "components": {
@@ -17,8 +19,10 @@
       "integration": "git-submodule",
       "repository": "https://github.com/Ibekwemmanuel7/Vulcan.git",
       "path": "modules/ml_mineral",
-      "commit": "9d2e68a4cba5b823f107bb5c4460cb8576a509db",
-      "manifest": "modules/ml_mineral/SOURCE_MANIFEST.json"
+      "commit": "d37644f0ce53a46f7d8074b775b7a436e229e413",
+      "manifest": "modules/ml_mineral/SOURCE_MANIFEST.json",
+      "domain": "Mineral prospectivity, mineral rights and permits",
+      "scope_status": "Prospectivity research exists; rights and permits are planned."
     }
   },
   "planned_components": {
@@ -27,14 +31,16 @@
       "repository": "https://github.com/Ibekwemmanuel7/Vantage.git",
       "status": "design-stage",
       "domain": "Southern US agriculture",
-      "commit": null
+      "commit": "3492da3b5f51d37225b8173c8a4a9537254d8bab",
+      "pin_scope": "documentation-only",
+      "integration": "repository-reference"
     },
     "vepris": {
       "name": "Vepris",
       "repository": "https://github.com/Ibekwemmanuel7/Vepris.git",
       "status": "design-stage",
       "domain": "Southern US forestry",
-      "commit": "88809d8b79a75994658edfea0ffea4409283ea72",
+      "commit": "5fee8ab77b94941cc9a0668eed6e37f5c5007276",
       "pin_scope": "documentation-only",
       "integration": "repository-reference"
     },
@@ -44,7 +50,17 @@
       "status": "awaiting-source-separation",
       "domain": "Oil-spill detection",
       "extraction_source": "LillieWatch",
-      "commit": null,
+      "commit": "abf519cb91348bc3779d6367885da448bd4f3209",
+      "integration": "repository-reference",
+      "pin_scope": "documentation-only"
+    },
+    "velo": {
+      "name": "Velo",
+      "repository": "https://github.com/Ibekwemmanuel7/Velo.git",
+      "status": "design-stage",
+      "domain": "Water intelligence",
+      "commit": "7c60f34a792b7560b2172aca8181deae02f75360",
+      "pin_scope": "documentation-only",
       "integration": "repository-reference"
     }
   }

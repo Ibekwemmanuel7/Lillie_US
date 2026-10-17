@@ -1,34 +1,78 @@
 # Lillie US
 
-Integration project for Southern US satellite intelligence. VHAGAR and Vaughan are installed through exact upstream Git commit references. Vulcan is the mineral research component, included as a commit-pinned Git submodule under `modules/ml_mineral`.
+Southern US satellite-intelligence portfolio and integration hub. Each product has an independent repository linked back to this hub. The portfolio combines existing research code with clearly labelled design-stage products; it is not yet a unified deployed platform.
 
-## Product responsibilities
+## Product portfolio
 
-| Component | Domain | Integration status |
-|---|---|---|
-| VHAGAR | Wildfire and burned-area methods | Commit-pinned Python dependency |
-| Vaughan | Hurricane research | Commit-pinned Python dependency |
-| Vulcan | Mineral-prospectivity research | Commit-pinned Git submodule |
-| [Vantage](https://github.com/Ibekwemmanuel7/Vantage) | Southern US agriculture and farmer/adviser workflows | Design stage; no source commit pinned |
-| [Vepris](https://github.com/Ibekwemmanuel7/Vepris) | Southern US forestry and timberland-management workflows | Design stage; documentation revision recorded |
-| [Viga](https://github.com/Ibekwemmanuel7/Viga) | Oil-spill detection | Awaiting owner-led separation from LillieWatch; no source commit pinned |
+| Product | Sector and responsibility | Current status | Hub integration |
+|---|---|---|---|
+| [VHAGAR](https://github.com/Ibekwemmanuel7/VHAGAR) | Wildfire intelligence | Research code; Southern validation separate | Pinned Python dependency |
+| [Vaughan](https://github.com/Ibekwemmanuel7/vaughan) | Hurricanes, flood and coastal impacts | Hurricane research; flood/coastal expansion planned | Pinned Python dependency |
+| [Vulcan](https://github.com/Ibekwemmanuel7/Vulcan) | Mineral prospectivity, mineral rights and permits | Prospectivity research; rights/permits expansion planned | Pinned Git submodule |
+| [Vantage](https://github.com/Ibekwemmanuel7/Vantage) | Southern US agriculture | Initial market and scope designed | Documentation reference only |
+| [Vepris](https://github.com/Ibekwemmanuel7/Vepris) | Southern US forestry | Scope designed | Documentation reference only |
+| [Viga](https://github.com/Ibekwemmanuel7/Viga) | Oil-spill detection | Awaiting owner-led code separation | Documentation reference only |
+| [Velo](https://github.com/Ibekwemmanuel7/Velo) | Water intelligence | Scope designed | Documentation reference only |
 
-Vepris owns the proposed forest-condition, harvest, replanting, storm-disturbance and recovery workflows. It may consume VHAGAR fire products later; this interface is not implemented. Vantage remains focused on agriculture. Planned repositories are recorded separately in `source-pins.json` and are not installed by the project.
 
-Viga is the dedicated oil-spill detection project. Its owner will separate the relevant code from LillieWatch. Once that source is published and reviewed, Lillie US can pin a specific Viga commit and select its integration method. Registration does not copy LillieWatch code or establish detection performance.
+```mermaid
+flowchart TB
+    Hub["Lillie US portfolio and integration"]
+    Hub --> Fire["VHAGAR · Wildfire"]
+    Hub --> Storm["Vaughan · Hurricanes, floods, coastal impacts"]
+    Hub --> Mineral["Vulcan · Minerals, rights, permits"]
+    Hub --> Farm["Vantage · Agriculture"]
+    Hub --> Forest["Vepris · Forestry"]
+    Hub --> Spill["Viga · Oil spills"]
+    Hub --> Water["Velo · Water intelligence"]
+```
 
-## Pinned dependencies
+Vaughan owns event flooding and coastal impacts; Velo owns ongoing water-resource and water-quality context. Vulcan's new rights/permit scope requires records and specialist review in addition to imagery. Those extensions are roadmaps, not newly implemented capabilities. Viga's separation from LillieWatch remains owner-led.
 
-| Package | Repository | Commit |
-|---|---|---|
-| VHAGAR | [VHAGAR](https://github.com/Ibekwemmanuel7/VHAGAR) | `42ffa5afeb6d358108a3c4d1f962d9b8747ae3af` |
-| Vaughan | [vaughan](https://github.com/Ibekwemmanuel7/vaughan) | `095374d4e74fa7c6125165460599b9270f21ece7` |
+## Navigate the portfolio
 
-`pyproject.toml` contains the installable dependency references. `source-pins.json` records the same source revisions for inspection. These pins do not lock transitive packages or establish Southern validation or operational readiness.
+- [Responsibilities and product status](docs/PORTFOLIO.md)
+- [Repository and integration strategy](docs/REPOSITORY_STRATEGY.md)
+- [Proposed cross-product interfaces](docs/INTERFACES.md)
+- [Machine-readable product catalogue](portfolio.json)
+- [Source and documentation references](source-pins.json)
 
-## Install
+## Repository arrangement
 
-Requires Python 3.11 or later and Git. From the repository root, create and activate a virtual environment, then run:
+Keep seven independent product repositories. Use commit-pinned Python dependencies for packaged code and a submodule where a source checkout is actually needed. Design-stage products remain linked references until there is code to integrate. Every product's README points here; a backlink is not a circular application dependency.
+
+Current tracked structure:
+
+```text
+Lillie_US/
+  README.md                  Portfolio entry point
+  portfolio.json             Products, domains, status and reviewed revisions
+  source-pins.json           Installed code pins and documentation references
+  pyproject.toml             VHAGAR and Vaughan Python dependencies
+  .gitmodules                Vulcan submodule URL and path
+  docs/                      Portfolio, repository strategy and interfaces
+  scripts/validate_portfolio.py
+  modules/ml_mineral/        Vulcan at the recorded commit
+```
+
+## Get the source checkout
+
+```powershell
+git clone --recurse-submodules https://github.com/Ibekwemmanuel7/Lillie_US.git
+cd Lillie_US
+```
+
+For an existing checkout, after pulling the parent revision:
+
+```powershell
+git submodule update --init --recursive
+```
+
+This checks out Vulcan at the recorded commit. It does not automatically clone all design-stage repositories or run their code.
+
+## Python integration
+
+Requires Python 3.11 or later and Git. Create and activate a virtual environment, then install the integration metadata and its two Python dependencies:
 
 ```powershell
 python -m venv .venv
@@ -36,32 +80,16 @@ python -m venv .venv
 python -m pip install .
 ```
 
-Vaughan requires PyTorch and other scientific dependencies, so installation can be substantial. The VHAGAR reference installs its core dependencies; optional geospatial, archive and serving extras should be selected when the corresponding workflow is implemented.
+Vaughan pulls scientific dependencies including PyTorch. VHAGAR's optional geospatial, archive and serving extras must be selected when their workflows are implemented. Vulcan uses its own environment and [setup instructions](modules/ml_mineral/README.md); it is not installed by `pip install .`.
 
-No unified Lillie US application package is shipped yet. VHAGAR and Vaughan remain external dependencies. Vulcan runs from its own directory so its existing `src` and `scripts` imports do not collide with other components.
+Runtime source pins remain VHAGAR `42ffa5afeb6d358108a3c4d1f962d9b8747ae3af` and Vaughan `095374d4e74fa7c6125165460599b9270f21ece7`. Portfolio-documentation revisions are recorded separately so scope changes do not silently change scientific code versions. Transitive dependencies are not locked by these source pins.
 
-## Mineral research component
-
-[Vulcan](https://github.com/Ibekwemmanuel7/Vulcan) contains the reusable experimental mineral-prospectivity framework. Lillie US tracks a specific Vulcan commit at `modules/ml_mineral`; `source-pins.json` records the same commit as the Git submodule entry.
-
-Clone this repository with its pinned submodule:
+## Validate and update
 
 ```powershell
-git clone --recurse-submodules https://github.com/Ibekwemmanuel7/Lillie_US.git
+python scripts/validate_portfolio.py
 ```
 
-For an existing checkout:
+Review and test code changes in their owning product first, publish the product commit, then update the corresponding parent package pin or submodule pointer together with the registry. Never substitute a moving branch for a source pin. For documentation-only products, record the reviewed documentation commit without claiming an installed runtime capability.
 
-```powershell
-git submodule update --init --recursive
-```
-
-See [Vulcan setup and scientific scope](modules/ml_mineral/README.md) and [integration notes](modules/ml_mineral/INTEGRATION.md). Vulcan is not installed by `pip install .`; use its dedicated environment. Existing configurations target Nigerian geology and require Southern US adaptation and validation.
-
-To advance Vulcan, review and test the desired upstream commit, check out that exact SHA inside `modules/ml_mineral`, update its entry in `source-pins.json`, and commit both the submodule pointer and manifest in Lillie US. Ordinary submodule initialisation uses the recorded commit, not the latest upstream branch.
-
-## Update a Python dependency pin
-
-For VHAGAR or Vaughan, review and validate the chosen upstream commit, then update its full SHA in both `pyproject.toml` and `source-pins.json`, and update the table above. Commit the coordinated change. Branch names and moving tags are not accepted as source pins. Vulcan uses the submodule update procedure above.
-
-Local planning documents are maintained separately and are not part of the initial dependency-pinning commit.
+Original local research folders and unpublished planning documents remain separate. This organisation change does not copy customer datasets, deploy services, or establish Southern US model performance.
