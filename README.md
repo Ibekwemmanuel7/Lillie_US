@@ -2,6 +2,18 @@
 
 Integration project for Southern US satellite intelligence. VHAGAR and Vaughan are installed through exact upstream Git commit references. Vulcan is the mineral research component, included as a commit-pinned Git submodule under `modules/ml_mineral`.
 
+## Product responsibilities
+
+| Component | Domain | Integration status |
+|---|---|---|
+| VHAGAR | Wildfire and burned-area methods | Commit-pinned Python dependency |
+| Vaughan | Hurricane research | Commit-pinned Python dependency |
+| Vulcan | Mineral-prospectivity research | Commit-pinned Git submodule |
+| [Vantage](https://github.com/Ibekwemmanuel7/Vantage) | Southern US agriculture and farmer/adviser workflows | Design stage; no source commit pinned |
+| [Vepris](https://github.com/Ibekwemmanuel7/Vepris) | Southern US forestry and timberland-management workflows | Design stage; documentation revision recorded |
+
+Vepris owns the proposed forest-condition, harvest, replanting, storm-disturbance and recovery workflows. It may consume VHAGAR fire products later; this interface is not implemented. Vantage remains focused on agriculture. Planned repositories are recorded separately in `source-pins.json` and are not installed by the project.
+
 ## Pinned dependencies
 
 | Package | Repository | Commit |

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Source revisions only; transitive Python dependencies are not locked.",
+  "scope": "Source and documentation revisions; planned_components are not runtime dependencies. Transitive Python dependencies are not locked.",
   "dependencies": {
     "vhagar": {
       "repository": "https://github.com/Ibekwemmanuel7/VHAGAR.git",
@@ -19,6 +19,24 @@
       "path": "modules/ml_mineral",
       "commit": "9d2e68a4cba5b823f107bb5c4460cb8576a509db",
       "manifest": "modules/ml_mineral/SOURCE_MANIFEST.json"
+    }
+  },
+  "planned_components": {
+    "vantage": {
+      "name": "Vantage",
+      "repository": "https://github.com/Ibekwemmanuel7/Vantage.git",
+      "status": "design-stage",
+      "domain": "Southern US agriculture",
+      "commit": null
+    },
+    "vepris": {
+      "name": "Vepris",
+      "repository": "https://github.com/Ibekwemmanuel7/Vepris.git",
+      "status": "design-stage",
+      "domain": "Southern US forestry",
+      "commit": "88809d8b79a75994658edfea0ffea4409283ea72",
+      "pin_scope": "documentation-only",
+      "integration": "repository-reference"
     }
   }
 }
