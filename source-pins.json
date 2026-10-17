@@ -37,6 +37,15 @@
       "commit": "88809d8b79a75994658edfea0ffea4409283ea72",
       "pin_scope": "documentation-only",
       "integration": "repository-reference"
+    },
+    "viga": {
+      "name": "Viga",
+      "repository": "https://github.com/Ibekwemmanuel7/Viga.git",
+      "status": "awaiting-source-separation",
+      "domain": "Oil-spill detection",
+      "extraction_source": "LillieWatch",
+      "commit": null,
+      "integration": "repository-reference"
     }
   }
 }
