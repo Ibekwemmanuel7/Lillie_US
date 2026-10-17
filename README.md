@@ -1,6 +1,6 @@
 # Lillie US
 
-Integration project for Southern US satellite intelligence. VHAGAR and Vaughan are installed through exact upstream Git commit references. The mineral research component is included as a reviewed source snapshot under `modules/ml_mineral`.
+Integration project for Southern US satellite intelligence. VHAGAR and Vaughan are installed through exact upstream Git commit references. Vulcan is the mineral research component, included as a commit-pinned Git submodule under `modules/ml_mineral`.
 
 ## Pinned dependencies
 
@@ -23,16 +23,30 @@ python -m pip install .
 
 Vaughan requires PyTorch and other scientific dependencies, so installation can be substantial. The VHAGAR reference installs its core dependencies; optional geospatial, archive and serving extras should be selected when the corresponding workflow is implemented.
 
-No unified Lillie US application package is shipped yet. VHAGAR and Vaughan remain external dependencies. The mineral component runs from its own directory so its existing `src` and `scripts` imports do not collide with other components.
+No unified Lillie US application package is shipped yet. VHAGAR and Vaughan remain external dependencies. Vulcan runs from its own directory so its existing `src` and `scripts` imports do not collide with other components.
 
 ## Mineral research component
 
-`modules/ml_mineral` includes the GeoSentry experimental mineral-prospectivity framework from the local `ML_mineral` project: source, scripts, tests, configurations and entry points. The source folder had no commits or remote, so this component is identified by a SHA-256 snapshot manifest rather than a fabricated Git revision.
+[Vulcan](https://github.com/Ibekwemmanuel7/Vulcan) contains the reusable experimental mineral-prospectivity framework. Lillie US tracks a specific Vulcan commit at `modules/ml_mineral`; `source-pins.json` records the same commit as the Git submodule entry.
 
-See [mineral integration notes](modules/ml_mineral/INTEGRATION.md) for setup, provenance and exclusions. It is not installed by `pip install .`. Its supplied pilot configurations target Nigerian geology and need separate Southern US data, configuration and validation before US use. No validated mineral-discovery claim is made.
+Clone this repository with its pinned submodule:
 
-## Update a pin
+```powershell
+git clone --recurse-submodules https://github.com/Ibekwemmanuel7/Lillie_US.git
+```
 
-Review and validate the chosen upstream commit, then update its full SHA in both `pyproject.toml` and `source-pins.json`, and update the table above. Commit the coordinated change. Branch names and moving tags are not accepted as source pins.
+For an existing checkout:
+
+```powershell
+git submodule update --init --recursive
+```
+
+See [Vulcan setup and scientific scope](modules/ml_mineral/README.md) and [integration notes](modules/ml_mineral/INTEGRATION.md). Vulcan is not installed by `pip install .`; use its dedicated environment. Existing configurations target Nigerian geology and require Southern US adaptation and validation.
+
+To advance Vulcan, review and test the desired upstream commit, check out that exact SHA inside `modules/ml_mineral`, update its entry in `source-pins.json`, and commit both the submodule pointer and manifest in Lillie US. Ordinary submodule initialisation uses the recorded commit, not the latest upstream branch.
+
+## Update a Python dependency pin
+
+For VHAGAR or Vaughan, review and validate the chosen upstream commit, then update its full SHA in both `pyproject.toml` and `source-pins.json`, and update the table above. Commit the coordinated change. Branch names and moving tags are not accepted as source pins. Vulcan uses the submodule update procedure above.
 
 Local planning documents are maintained separately and are not part of the initial dependency-pinning commit.

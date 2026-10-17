@@ -1,0 +1,3 @@
+[submodule "modules/ml_mineral"]
+	path = modules/ml_mineral
+	url = https://github.com/Ibekwemmanuel7/Vulcan.git

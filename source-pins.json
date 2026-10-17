@@ -13,11 +13,12 @@
   },
   "components": {
     "ml_mineral": {
-      "integration": "vendored-source-snapshot",
+      "name": "Vulcan",
+      "integration": "git-submodule",
+      "repository": "https://github.com/Ibekwemmanuel7/Vulcan.git",
       "path": "modules/ml_mineral",
-      "manifest": "modules/ml_mineral/SOURCE_MANIFEST.json",
-      "tree_sha256": "3b198093dff46c13420c99dd49891c4a76fbb7bbe822dea6a889c47ec433f8f3",
-      "source_commit": null
+      "commit": "9d2e68a4cba5b823f107bb5c4460cb8576a509db",
+      "manifest": "modules/ml_mineral/SOURCE_MANIFEST.json"
     }
   }
 }

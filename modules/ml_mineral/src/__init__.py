@@ -1,3 +1,0 @@
-from src.geo_runtime import configure_geospatial_runtime
-
-configure_geospatial_runtime()
