@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scope": "Source revisions only; transitive Python dependencies are not locked.",
+  "dependencies": {
+    "vhagar": {
+      "repository": "https://github.com/Ibekwemmanuel7/VHAGAR.git",
+      "commit": "42ffa5afeb6d358108a3c4d1f962d9b8747ae3af"
+    },
+    "vaughan": {
+      "repository": "https://github.com/Ibekwemmanuel7/vaughan.git",
+      "commit": "095374d4e74fa7c6125165460599b9270f21ece7"
+    }
+  }
+}

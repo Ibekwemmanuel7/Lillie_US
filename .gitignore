@@ -1,0 +1,28 @@
+# Local environments and Python build output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+.aws/
+*.pem
+*.key
+
+# Local working data, models and document QA
+.design_revision_qa/
+data/
+outputs/
+*.pt
+*.pth
+*.ckpt
+~$*

@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lillie-us"
+version = "0.1.0"
+description = "Lillie US integration project with pinned satellite intelligence dependencies"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "vhagar @ git+https://github.com/Ibekwemmanuel7/VHAGAR.git@42ffa5afeb6d358108a3c4d1f962d9b8747ae3af",
+    "vaughan @ git+https://github.com/Ibekwemmanuel7/vaughan.git@095374d4e74fa7c6125165460599b9270f21ece7",
+]
+
+# Integration metadata only; do not auto-package the planning folders.
+[tool.setuptools]
+packages = []
